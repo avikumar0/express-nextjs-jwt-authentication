@@ -58,19 +58,21 @@ const Login = () => {
             />
             {formik.errors.email && <div className="text-red-500">{formik.errors.email}</div>}
           </div>
-          <div className="mb-6">
+          <div className="mb-6 ">
             <label htmlFor="password" className="block font-medium mb-2">
               Password
             </label>
+
             <input
               type="password"
               id="password"
               name="password"
               value={formik.values.password}
               onChange={formik.handleChange}
-              className="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2"
+              className="relative w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2"
               placeholder="Enter your password"
             />
+                       
             {formik.errors.password && <div className="text-red-500">{formik.errors.password}</div>}
           </div>
           <p className="text-sm text-gray-600 p-1">

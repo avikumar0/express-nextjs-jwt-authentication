@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - NODE_ENV=production
+      - PORT=8000
+      - MONGO_URI=mongodb+srv://avikr287:dkpjTEPE8zp8L6ff@cluster0.jpjo6t4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0 
+      - JWT_SECRET_KEY=d97004c0464694caeac9ed1f8cba5f85ae8f1113625fab54aac18ab37fa50a0ed  # Replace with your JWT secret key
+      - EMAIL_SERVICE=smtp.gmail.com          # Replace with your email service
+      - EMAIL_USERNAME=your_email_username    # Replace with your email username
+      - EMAIL_PASSWORD=your_email_password    # Replace with your email password
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - API_URL=http://backend:8000           # Points to the backend service in the same Docker network

@@ -1,4 +1,3 @@
-// src/middleware.js
 import { NextRequest, NextResponse } from "next/server";
 import isValidJWT from "./utils/validJwt";
 
@@ -7,8 +6,8 @@ export default async function middleware(request) {
   const { pathname } = request.nextUrl;
   
   const validJWT = JWT_TOKEN && isValidJWT(JWT_TOKEN.value);
-  console.log("token is",validJWT)
-  console.log("Path",authPaths.includes(pathname))
+  // console.log("token is",validJWT)
+  // console.log("Path",authPaths.includes(pathname))
   
   // Allow access to the Next.js app
   if (pathname.startsWith("/_next")) return NextResponse.next();
